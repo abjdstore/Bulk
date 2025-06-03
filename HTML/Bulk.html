@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bulk Messages</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../CSS/Bulk.css">
+</head>
+<body>
+    <div class="container-fluid">
+        <div style="text-align: right;">
+            <button class="back-button"><i class="fa-solid fa-arrow-left"
+                style="margin-right: 12px;"></i>Back</button>
+        </div>
+        
+        <div class="page-header">
+            <h1 class="page-title">Bulk</h1>
+            <button class="add-btn">
+                <i class="fas fa-plus"></i>
+            </button>
+        </div>
+        
+        <div class="table-container">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th><i class="fas fa-comment-alt me-2"></i>Message</th>
+                        <th><i class="fas fa-calendar me-2"></i>Date</th>
+                        <th><i class="fas fa-user me-2"></i>Provider</th>
+                        <th><i class="fas fa-info-circle me-2"></i>Reason</th>
+                        <th><i class="fas fa-chart-line me-2"></i>Response</th>
+                        <th><i class="fas fa-cog me-2"></i>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="messagesTableBody">
+                    <!-- Table rows -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Message Modal -->
+    <div class="modal fade" id="messageModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Message Details</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <p id="messageContent"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit Modal -->
+    <div class="modal fade" id="editMessageModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Edit Message</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="editMessageText" class="form-label">Message</label>
+                        <textarea class="form-control" id="editMessageText" rows="4"></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" id="resendBtn">Resend</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="../JS/Bulk.js"></script>
+</body>
+</html>

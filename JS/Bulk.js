@@ -137,6 +137,14 @@ function handleResend() {
     }
 }
 
+function showNewMessageModal() {
+    document.getElementById('newMessageReason').value = '';
+    document.getElementById('newMessageProvider').value = '';
+    
+    const newMessageModal = new bootstrap.Modal(document.getElementById('newMessageModal'));
+    newMessageModal.show();
+}
+
 document.getElementById('resendBtn').addEventListener('click', handleResend);
 
 renderTable();

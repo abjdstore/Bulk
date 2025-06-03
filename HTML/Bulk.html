@@ -10,14 +10,14 @@
 </head>
 <body>
     <div class="container-fluid">
-        <div style="text-align: right;">
-            <button class="back-button"><i class="fa-solid fa-arrow-left"
-                style="margin-right: 12px;"></i>Back</button>
-        </div>
+        <a href="#" class="back-btn">
+            <i class="fas fa-arrow-left"></i>
+            Back
+        </a>
         
         <div class="page-header">
             <h1 class="page-title">Bulk</h1>
-            <button class="add-btn">
+            <button class="add-btn" onclick="showNewMessageModal()">
                 <i class="fas fa-plus"></i>
             </button>
         </div>
@@ -73,6 +73,32 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-primary" id="resendBtn">Resend</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- New Message Modal -->
+    <div class="modal fade" id="newMessageModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">New Message</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="newMessageReason" class="form-label">Reason</label>
+                        <input type="text" class="form-control" id="newMessageReason" placeholder="Enter reason">
+                    </div>
+                    <div class="mb-3">
+                        <label for="newMessageProvider" class="form-label">Provider</label>
+                        <select class="form-select" id="newMessageProvider">
+                            <option value="">Select a provider</option>
+                            <option value="Email">Email</option>
+                            <option value="SMS">SMS</option>
+                        </select>
+                    </div>
                 </div>
             </div>
         </div>

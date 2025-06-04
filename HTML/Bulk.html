@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,20 +9,21 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../CSS/Bulk.css">
 </head>
+
 <body>
     <div class="container-fluid">
         <div style="text-align: right;">
             <button class="back-button"><i class="fa-solid fa-arrow-left"
                 style="margin-right: 12px;"></i>Back</button>
         </div>
-        
+
         <div class="page-header">
             <h1 class="page-title">Bulk</h1>
             <button class="add-btn" onclick="showNewMessageModal()">
                 <i class="fas fa-plus"></i>
             </button>
         </div>
-        
+
         <div class="table-container">
             <table class="table">
                 <thead>
@@ -80,7 +82,7 @@
 
     <!-- New Message Modal -->
     <div class="modal fade" id="newMessageModal" tabindex="-1">
-        <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-dialog modal-dialog-centered" id="newMessageModalDialog">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">New Message</h5>
@@ -99,6 +101,95 @@
                             <option value="SMS">SMS</option>
                         </select>
                     </div>
+
+                    <div id="smsTypeFields" class="sms-type-fields">
+                        <div class="mb-3">
+                            <label class="form-label">SMS</label>
+                            <div class="sms-type-options">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="smsType" id="bulkSMS"
+                                        value="bulk">
+                                    <label class="form-check-label" for="bulkSMS">
+                                        Bulk
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="smsType" id="personalSMS"
+                                        value="personal">
+                                    <label class="form-check-label" for="personalSMS">
+                                        Personal
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="smsFields" class="sms-fields">
+                        <div class="mb-3" id="numbersField">
+                            <label for="smsNumbers" class="form-label">Numbers</label>
+                            <textarea class="form-control" id="smsNumbers" rows="4"
+                                placeholder="Enter phone numbers (one per line or comma-separated)"></textarea>
+                        </div>
+                        <div class="mb-3" id="personalNumberField" style="display: none;">
+                            <label for="smsPersonalNumber" class="form-label">Numbers</label>
+                            <input type="tel" class="form-control" id="smsPersonalNumber"
+                                placeholder="Enter phone number">
+                        </div>
+                        <div class="mb-3">
+                            <label for="smsMessage" class="form-label">Message</label>
+                            <textarea class="form-control" id="smsMessage" rows="4" placeholder="Enter SMS message"
+                                maxlength="160"></textarea>
+                            <div class="form-text">160 characters maximum</div>
+                        </div>
+                    </div>
+
+                    <div id="emailFields" class="email-fields">
+                        <div class="mb-3">
+                            <label for="emailAddress" class="form-label">Select Your Email Address</label>
+                            <select class="form-select" id="emailAddress">
+                                <option value="">Select Your Email Address</option>
+                                <option value="admin@company.com">admin@company.com</option>
+                                <option value="support@company.com">support@company.com</option>
+                                <option value="noreply@company.com">noreply@company.com</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="emailTo" class="form-label">To</label>
+                            <input type="email" class="form-control" id="emailTo" placeholder="Enter recipient email">
+                        </div>
+                        <div class="mb-3">
+                            <label for="emailCC" class="form-label">CC</label>
+                            <input type="email" class="form-control" id="emailCC"
+                                placeholder="Enter CC email (optional)">
+                        </div>
+                        <div class="mb-3">
+                            <label for="emailSubject" class="form-label">Subject</label>
+                            <input type="text" class="form-control" id="emailSubject" placeholder="Enter email subject">
+                        </div>
+                        <div class="mb-3">
+                            <label for="emailMessage" class="form-label">Message</label>
+                            <textarea class="form-control" id="emailMessage" rows="5"
+                                placeholder="Enter your message"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" id="sendNewMessageBtn">Send</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div class="modal fade success-modal" id="successModal" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false">
+        <div class="modal-dialog modal-dialog-centered modal-sm">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="success-icon">
+                        <i class="fas fa-check"></i>
+                    </div>
+                    <h4 class="success-title">Thank you!</h4>
+                    <p class="success-message">Your message has been Send Successfully</p>
                 </div>
             </div>
         </div>
@@ -107,4 +198,5 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
     <script src="../JS/Bulk.js"></script>
 </body>
+
 </html>
